@@ -2,4 +2,15 @@
 
 # Show changes (both committed and uncommitted) on the current branch since last pull from remote
 
-git log $(git remote)/$(git rev-parse --abbrev-ref HEAD)..HEAD
+REMOTE=$(git remote)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+echo "Committed changes on $BRANCH since last pull from $REMOTE"
+echo ""
+
+git log $REMOTE/$BRANCH..HEAD
+
+echo ""
+echo "Uncommitted changes on $BRANCH since last pull from $REMOTE"
+
+git status -s
