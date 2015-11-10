@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Show changes (both committed and uncommitted) on the current branch since last pull from remote
+
+git log $(git remote)/$(git rev-parse --abbrev-ref HEAD)..HEAD
